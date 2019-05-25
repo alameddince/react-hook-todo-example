@@ -40,12 +40,22 @@ function App() {
     };
     const completeTodo = index => {
         const newTodos = [...todos];
+        newTodos.map((t)=>{
+            if(t.index!=index){
+                t.isCompleted=false
+            }
+        })
         newTodos[index].isCompleted = true;
         setTodos(newTodos);
     };
     const removeTodo = index => {
         const newTodos = [...todos];
         newTodos.splice(index,1);
+        newTodos.map((t)=>{
+            if(t.index!=index){
+                t.isCompleted=false
+            }
+        })
         setTodos(newTodos);
     }
 
